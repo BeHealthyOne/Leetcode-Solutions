@@ -62,10 +62,32 @@ class Solution:
         return sum
 ~~~
 
+# 方法三、双指针
 
+对于方法二，注意到max_left和max_right数组均只使用了1次，所以可以用临时变量来代替。但是一个是从左到右，一个是从右到左，只能用双指针
 
-
-
+Version:python
+~~~python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        sum = 0
+        n = len(height)
+        max_left, max_right = 0, 0
+        left, right = 1, n - 2
+        for i in range(1, n - 1):    # (1, n - 2)
+            if height[left - 1] < height[right + 1]:
+                # 此时左边的列较低
+                max_left = max(max_left, height[left - 1])
+                minH = max_left
+                if minH > height[left]: sum = sum + minH - height[left]
+                left = left + 1
+            else:
+                max_right = max(max_right, height[right + 1])
+                minH = max_right
+                if minH > height[right]: sum = sum + minH - height[right]
+                right = right - 1
+        return sum
+~~~
 
 
 
