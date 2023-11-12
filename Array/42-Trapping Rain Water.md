@@ -36,3 +36,38 @@ class Solution {
     }
 }
 ~~~
+
+# 方法二、动态规划
+
+注意到方法一中对于每一列都重复地计算了列左边和列右边的高度，所以可以用动态规划的思想，**将列左边和列右边的最大高度存储到一个数组中**。
+
+Version:python
+
+~~~python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        sum = 0
+        n = len(height)
+        max_left = [0] * n    # apply for n size space
+        max_right = [0] * n
+        for j in range(1, n - 1):
+            max_left[j] = max(max_left[j - 1], height[j - 1])    # compare left & max_left
+        j = n - 2
+        while j >= 0:
+            max_right[j] = max(max_right[j + 1], height[j + 1])
+            j = j - 1
+        for i in range(1, n - 1):
+            minof2 = min(max_left[i], max_right[i])
+            if minof2 > height[i]: sum = sum + minof2 - height[i]
+        return sum
+~~~
+
+
+
+
+
+
+
+
+
+
