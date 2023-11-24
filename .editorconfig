@@ -3,6 +3,6 @@ root = true
 
 # markdown files
 [*]
-Indent_mode = Spaces
-Indent_size = 4
-Line_wrap_mode = Soft wrap
+indent_mode = space
+indent_size = 4
+line_wrap_mode = soft
