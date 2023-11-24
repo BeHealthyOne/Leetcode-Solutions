@@ -1,8 +1,8 @@
 # top-most EditorConfig file
 root = true
 
-# markdown files
+# all files
 [*]
-indent_mode = space
+indent_style = space
 indent_size = 4
 line_wrap_mode = soft
