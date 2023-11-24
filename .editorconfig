@@ -1,0 +1,8 @@
+# top-most EditorConfig file
+root = true
+
+# markdown files
+[*.md]
+Indent_mode = Spaces
+Indent_size = 4
+Line_wrap_mode = Soft wrap
